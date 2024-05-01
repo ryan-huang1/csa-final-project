@@ -10,13 +10,16 @@ public class GameEngine {
     public void initializeGame() {
         System.out.println("\nWelcome to Virtual Tamagotchi!");
         pet.initializeStats();
-        player.initializePlayer();
+        // Assuming player at index 0 is the current player
+        player.initializePlayerAtIndex(0); // Initialize the player if this function exists or was intended
     }
 
     public void feedPet() {
         if (pet.isHungry()) {
             pet.eatFood();
-            player.increaseScore(10); // Reward the player for taking care of the pet
+            // Increase score for player at index 0
+            player.increaseScore(0, 10); // Reward the player for taking care of the pet
+            System.out.println("You fed " + pet.getName() + ". " + pet.getName() + " is happy and healthier!\n");
         } else {
             System.out.println("Pet is not hungry right now.\n");
         }
@@ -25,7 +28,9 @@ public class GameEngine {
     public void playWithPet() {
         if (pet.isBored()) {
             pet.play();
-            player.increaseScore(15); // Reward for playing with the pet
+            // Increase score for player at index 0
+            player.increaseScore(0, 15); // Reward for playing with the pet
+            System.out.println("You played with " + pet.getName() + ". It's having fun!\n");
         } else {
             System.out.println("Pet doesn't feel like playing right now.\n");
         }
@@ -34,7 +39,9 @@ public class GameEngine {
     public void cleanPet() {
         if (pet.isDirty()) {
             pet.clean();
-            player.increaseScore(8); // Reward for cleaning the pet
+            // Increase score for player at index 0
+            player.increaseScore(0, 8); // Reward for cleaning the pet
+            System.out.println("You cleaned " + pet.getName() + ". It looks shiny now!\n");
         } else {
             System.out.println("Pet is already clean.\n");
         }
