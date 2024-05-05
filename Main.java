@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.HashMap;
 
 public class Main {
     public static void main(String[] args) {
@@ -6,6 +7,7 @@ public class Main {
         Player player = new Player(scanner); // Pass scanner to Player constructor
         Pet pet = new Pet(scanner); // Pass scanner to Pet constructor
         GameEngine gameEngine = new GameEngine(player, pet);
+        HashMap<String, Double> hashMap = new HashMap<>();
 
         // Initialize the game
         gameEngine.initializeGame();
